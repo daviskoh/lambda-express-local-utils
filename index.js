@@ -1,6 +1,6 @@
-import request from 'superagent';
+const request = require('superagent');
 
-export wrapLambda (handler) => {
+module.exports.wrapLambda (handler) => {
   const cb = (res, next) => {
     return (err, resp) => {
       if (err) return next(err);
@@ -22,7 +22,7 @@ export wrapLambda (handler) => {
   };
 };
 
-export authorizer = (opts) => {
+module.exports.authorizer = (opts) => {
   return (req, res, next) => {
     const authToken = req.header('Authorization');
     if (!authToken) return res.end('Unathorized');
