@@ -1,6 +1,6 @@
 const request = require('superagent');
 
-module.exports.wrapLambda (handler) => {
+module.exports.wrapLambda = (handler) => {
   const cb = (res, next) => {
     return (err, resp) => {
       if (err) return next(err);
