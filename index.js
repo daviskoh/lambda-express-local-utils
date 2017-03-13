@@ -25,7 +25,10 @@ module.exports.wrapLambda = (handler) => {
 module.exports.authorizer = (opts) => {
   return (req, res, next) => {
     const authToken = req.header('Authorization');
-    if (!authToken) return res.end('Unauthorized');
+
+    res.setHeader('Content-Type', 'application/json');
+
+    if (!authToken) return res.send({'message': 'Unauthorized'});
 
     console.log(`Authorization token: ${authToken}`);
 
@@ -41,7 +44,7 @@ module.exports.authorizer = (opts) => {
       .end((err, resp) => {
         if (err) {
           console.error(err)
-          res.end('Unauthorized');
+          res.send({'message': 'Unauthorized'})
         };
 
         req.requestContext = {
