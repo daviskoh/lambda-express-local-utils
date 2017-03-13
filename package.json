@@ -1,6 +1,6 @@
 {
   "name": "lambda-express-local-utils",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "index.js",
   "repository": "git@github.com:daviskoh/lambda-express-local-utils.git",
   "author": "daviskoh <hello@daviskoh.com>",

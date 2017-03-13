@@ -25,7 +25,7 @@ module.exports.wrapLambda = (handler) => {
 module.exports.authorizer = (opts) => {
   return (req, res, next) => {
     const authToken = req.header('Authorization');
-    if (!authToken) return res.end('Unathorized');
+    if (!authToken) return res.end('Unauthorized');
 
     console.log(`Authorization token: ${authToken}`);
 
