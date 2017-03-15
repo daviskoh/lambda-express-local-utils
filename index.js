@@ -28,7 +28,9 @@ module.exports.authorizer = (opts) => {
 
     res.setHeader('Content-Type', 'application/json');
 
-    if (!authToken) return res.send({'message': 'Unauthorized'});
+    if (!authToken) {
+      return res.status(401).send({'message': 'Unauthorized'});
+    }
 
     console.log(`Authorization token: ${authToken}`);
 
@@ -44,7 +46,7 @@ module.exports.authorizer = (opts) => {
       .end((err, resp) => {
         if (err) {
           console.error(err)
-          res.send({'message': 'Unauthorized'})
+          res.status(401).send({'message': 'Unauthorized'})
         };
 
         req.requestContext = {
