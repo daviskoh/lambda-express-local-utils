@@ -14,6 +14,9 @@ module.exports.wrapLambda = (handler) => {
   return (req, res, next) => {
     // keep ctrl of what is passed through
     const lambdaEvent = {
+      headers: {
+        Authorization: req.headers.authorization,
+      },
       body: JSON.stringify(req.body),
       requestContext: req.requestContext,
     };
