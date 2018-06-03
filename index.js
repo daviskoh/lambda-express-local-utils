@@ -15,6 +15,7 @@ module.exports.wrapLambda = (handler) => {
     // keep ctrl of what is passed through
     const lambdaEvent = {
       headers: req.headers,
+      queryStringParameters: req.query,
       body: JSON.stringify(req.body),
       requestContext: req.requestContext,
     };
