@@ -58,7 +58,7 @@ describe('Lambda Utils', () => {
       expect(mocks.handler).toBeCalledWith({
         headers: mocks.req.headers,
         queryStringParameters: mocks.req.query,
-        body: JSON.stringify(mocks.req.body),
+        body: mocks.req.body,
         requestContext: mocks.req.requestContext,
       }, {});
     });

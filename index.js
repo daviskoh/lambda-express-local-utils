@@ -5,7 +5,7 @@ module.exports.wrapLambda = (handler) => (async (req, res, next) => {
   const lambdaEvent = {
     headers: req.headers,
     queryStringParameters: req.query,
-    body: JSON.stringify(req.body),
+    body: req.body,
     requestContext: req.requestContext,
   };
 
